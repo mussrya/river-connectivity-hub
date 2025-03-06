@@ -12,6 +12,7 @@ const Contact = () => {
   
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const formContainerRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const Contact = () => {
       { threshold: 0.1 }
     );
 
-    const elements = [titleRef.current, subtitleRef.current, formRef.current];
+    const elements = [titleRef.current, subtitleRef.current, formContainerRef.current];
     
     elements.forEach(element => {
       if (element) {
@@ -111,7 +112,7 @@ const Contact = () => {
             </div>
           </div>
           
-          <div ref={formRef} className="fade-in-when-visible">
+          <div ref={formContainerRef} className="fade-in-when-visible">
             <div className="bg-white rounded-xl p-6 md:p-8 shadow-soft border border-border">
               <h3 className="text-xl font-medium mb-6">Send us a message</h3>
               
@@ -131,7 +132,7 @@ const Contact = () => {
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit}>
+                <form ref={formRef} onSubmit={handleSubmit}>
                   <div className="space-y-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
