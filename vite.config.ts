@@ -22,10 +22,10 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
+    // Ensure proper MIME types for JavaScript modules
     rollupOptions: {
       output: {
-        // Ensure proper MIME types by explicitly setting formats
-        format: 'es',
+        // Use .js extension for JavaScript files to ensure correct MIME type on GitHub Pages
         entryFileNames: 'assets/[name].[hash].js',
         chunkFileNames: 'assets/[name].[hash].js',
         assetFileNames: 'assets/[name].[hash].[ext]'
