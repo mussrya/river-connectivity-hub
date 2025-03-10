@@ -32,6 +32,9 @@ jobs:
         run: npm run build
       - name: Create .nojekyll file
         run: touch ./dist/.nojekyll
+      - name: Create MIME type configuration
+        run: |
+          echo '{ "*.js": "application/javascript; charset=utf-8" }' > ./dist/.mime.types
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
