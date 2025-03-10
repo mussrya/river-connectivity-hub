@@ -42,8 +42,8 @@ const Navbar = () => {
             <a href="#process" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               How It Works
             </a>
-            <a href="#testimonials" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Testimonials
+            <a href="#why-choose-us" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+              Why Choose Us
             </a>
             <a 
               href="#contact" 
@@ -90,11 +90,11 @@ const Navbar = () => {
             How It Works
           </a>
           <a 
-            href="#testimonials" 
+            href="#why-choose-us" 
             className="text-base font-medium text-foreground py-2 border-b border-gray-100"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Testimonials
+            Why Choose Us
           </a>
           <a 
             href="#contact" 
