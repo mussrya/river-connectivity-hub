@@ -11,8 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             <a href="#" className="text-2xl font-semibold text-primary flex items-center space-x-2">
-              <span className="font-semibold">River</span>
-              <span className="text-river-700 font-bold">API</span>
+            <span className="font-semibold italic">//RIVER API</span>
             </a>
             <p className="mt-4 text-muted-foreground">
               Seamless integrations for modern businesses. Connect your critical SaaS applications with ease.

@@ -31,8 +31,7 @@ const Navbar = () => {
             href="#" 
             className="text-2xl font-semibold text-primary flex items-center space-x-2"
           >
-            <span className="font-semibold">River</span>
-            <span className="text-river-700 font-bold">API</span>
+            <span className="font-semibold italic">//RIVER API</span>
           </a>
 
           {/* Desktop menu */}
