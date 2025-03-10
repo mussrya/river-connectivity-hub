@@ -1,6 +1,6 @@
 
 import React, { useRef, useEffect, useState } from 'react';
-import { Send } from 'lucide-react';
+import { Send, Phone, Mail, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from "sonner";
 
@@ -84,16 +84,54 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="section-container">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 ref={titleRef} className="section-title fade-in-when-visible">
-            Ready to <span className="text-river-600">Connect</span> Your Business Systems?
-          </h2>
-          <p ref={subtitleRef} className="section-subtitle fade-in-when-visible mx-auto">
-            Get in touch with our integration experts to discuss your specific needs and discover how River API can transform your business processes.
-          </p>
-        </div>
-        
-        <div className="max-w-xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <h2 ref={titleRef} className="section-title fade-in-when-visible">
+              Ready to <span className="text-river-600">Connect</span> Your Business Systems?
+            </h2>
+            <p ref={subtitleRef} className="section-subtitle fade-in-when-visible">
+              Get in touch with our integration experts to discuss your specific needs and discover how River API can transform your business processes.
+            </p>
+            
+            <div className="mt-8 space-y-6">
+              <div className="flex items-start space-x-4 fade-in-when-visible" style={{ transitionDelay: '100ms' }}>
+                <div className="flex-shrink-0 mt-1">
+                  <div className="w-10 h-10 rounded-full bg-river-50 flex items-center justify-center text-river-600">
+                    <Phone className="h-5 w-5" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium">Call Us</h3>
+                  <p className="text-muted-foreground mt-1">(+44) 1234 567890</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4 fade-in-when-visible" style={{ transitionDelay: '200ms' }}>
+                <div className="flex-shrink-0 mt-1">
+                  <div className="w-10 h-10 rounded-full bg-river-50 flex items-center justify-center text-river-600">
+                    <Mail className="h-5 w-5" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium">Email Us</h3>
+                  <p className="text-muted-foreground mt-1">contact@riverapi.com</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4 fade-in-when-visible" style={{ transitionDelay: '300ms' }}>
+                <div className="flex-shrink-0 mt-1">
+                  <div className="w-10 h-10 rounded-full bg-river-50 flex items-center justify-center text-river-600">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium">Visit Us</h3>
+                  <p className="text-muted-foreground mt-1">123 Tech Hub Street, London, UK</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <div ref={formContainerRef} className="fade-in-when-visible">
             <div className="bg-white rounded-xl p-6 md:p-8 shadow-soft border border-border">
               <h3 className="text-xl font-medium mb-6">Send us a message</h3>

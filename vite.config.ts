@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "./",  // Change from "/" to "./" for relative paths in GitHub Pages
+  base: "/",  // Use root path for custom domain
   server: {
     host: "::",
     port: 8080,
@@ -22,10 +22,10 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Ensure proper MIME types for JavaScript modules
     rollupOptions: {
       output: {
-        // Use .js extension for JavaScript files to ensure correct MIME type on GitHub Pages
+        // Ensure proper MIME types by explicitly setting formats
+        format: 'es',
         entryFileNames: 'assets/[name].[hash].js',
         chunkFileNames: 'assets/[name].[hash].js',
         assetFileNames: 'assets/[name].[hash].[ext]'
