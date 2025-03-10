@@ -2,6 +2,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Send, Phone, Mail, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { toast } from "sonner";
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -42,23 +43,42 @@ const Contact = () => {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-      setName('');
-      setEmail('');
-      setMessage('');
+    try {
+      // Submit the form to Formspree
+      const form = e.target as HTMLFormElement;
+      const formData = new FormData(form);
       
-      // Reset submission status after 5 seconds
-      setTimeout(() => {
-        setSubmitted(false);
-      }, 5000);
-    }, 1500);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          Accept: 'application/json'
+        },
+      });
+      
+      if (response.ok) {
+        setSubmitted(true);
+        setName('');
+        setEmail('');
+        setMessage('');
+        toast.success("Message sent successfully!");
+        
+        // Reset submission status after 5 seconds
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 5000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -132,7 +152,12 @@ const Contact = () => {
                   </div>
                 </div>
               ) : (
-                <form ref={formRef} onSubmit={handleSubmit}>
+                <form 
+                  ref={formRef} 
+                  onSubmit={handleSubmit}
+                  action="https://formspree.io/f/mzzebree"
+                  method="POST"
+                >
                   <div className="space-y-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
@@ -141,6 +166,7 @@ const Contact = () => {
                       <input
                         type="text"
                         id="name"
+                        name="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="w-full px-4 py-2 border border-border rounded-lg focus:ring-1 focus:ring-river-400 focus:border-river-400 outline-none transition-all"
@@ -156,6 +182,7 @@ const Contact = () => {
                       <input
                         type="email"
                         id="email"
+                        name="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-full px-4 py-2 border border-border rounded-lg focus:ring-1 focus:ring-river-400 focus:border-river-400 outline-none transition-all"
@@ -170,6 +197,7 @@ const Contact = () => {
                       </label>
                       <textarea
                         id="message"
+                        name="message"
                         rows={4}
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
