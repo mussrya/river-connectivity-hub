@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -31,7 +30,11 @@ const Navbar = () => {
             href="#" 
             className="text-2xl font-semibold text-primary flex items-center space-x-2"
           >
-            <span className="font-semibold italic">//RIVER API</span>
+            <img 
+              src="/lovable-uploads/3cb1bc30-9adc-41ae-beb1-a5a3d792dd51.png" 
+              alt="River API Logo" 
+              className="h-8 w-auto"
+            />
           </a>
 
           {/* Desktop menu */}

@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Link, Twitter, Linkedin, Github } from 'lucide-react';
+import { Twitter, Linkedin, Github } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,8 +9,12 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <a href="#" className="text-2xl font-semibold text-primary flex items-center space-x-2">
-            <span className="font-semibold italic">//RIVER API</span>
+            <a href="#" className="inline-block">
+              <img 
+                src="/lovable-uploads/3cb1bc30-9adc-41ae-beb1-a5a3d792dd51.png" 
+                alt="River API Logo" 
+                className="h-8 w-auto"
+              />
             </a>
             <p className="mt-4 text-muted-foreground">
               Seamless integrations for modern businesses. Connect your critical SaaS applications with ease.
