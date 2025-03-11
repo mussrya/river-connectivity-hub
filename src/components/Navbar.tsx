@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -33,7 +34,7 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/3cb1bc30-9adc-41ae-beb1-a5a3d792dd51.png" 
               alt="River API Logo" 
-              className="h-8 w-auto"
+              className="h-16 w-auto" // Changed from h-8 to h-16 (4rem)
             />
           </a>
 

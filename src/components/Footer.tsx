@@ -13,7 +13,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/3cb1bc30-9adc-41ae-beb1-a5a3d792dd51.png" 
                 alt="River API Logo" 
-                className="h-8 w-auto"
+                className="h-16 w-auto"
               />
             </a>
             <p className="mt-4 text-muted-foreground">
